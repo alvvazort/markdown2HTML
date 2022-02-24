@@ -55,15 +55,27 @@ class Ui_ImageViewerWindow(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout)
 
-        self.imageLabel = QLabel(self.centralwidget)
-        self.imageLabel.setObjectName(u"imageLabel")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.imageLabel.sizePolicy().hasHeightForWidth())
-        self.imageLabel.setSizePolicy(sizePolicy1)
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.textEdit = QTextEdit(self.centralwidget)
+        self.textEdit.setObjectName(u"textEdit")
 
-        self.verticalLayout.addWidget(self.imageLabel)
+        self.horizontalLayout_2.addWidget(self.textEdit)
+
+        self.line = QFrame(self.centralwidget)
+        self.line.setObjectName(u"line")
+        self.line.setFrameShape(QFrame.VLine)
+        self.line.setFrameShadow(QFrame.Sunken)
+
+        self.horizontalLayout_2.addWidget(self.line)
+
+        self.graphicsView = QGraphicsView(self.centralwidget)
+        self.graphicsView.setObjectName(u"graphicsView")
+
+        self.horizontalLayout_2.addWidget(self.graphicsView)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
         ImageViewerWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(ImageViewerWindow)
@@ -80,6 +92,5 @@ class Ui_ImageViewerWindow(object):
         self.pushButton.setText("")
         self.saveButton.setText("")
         self.currentFile.setText(QCoreApplication.translate("ImageViewerWindow", u"No file selected", None))
-        self.imageLabel.setText("")
     # retranslateUi
 

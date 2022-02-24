@@ -7,7 +7,7 @@ from PyQt5 import uic
 class Markdown2HTML(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi('mainInterface.ui', self) #Carga la interfaz (Hecha en Qt designer)
+        uic.loadUi('app\mainInterface.ui', self) #Carga la interfaz (Hecha en Qt designer)
 
     
 
