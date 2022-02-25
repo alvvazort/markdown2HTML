@@ -31,29 +31,38 @@ class Ui_ImageViewerWindow(object):
 
         self.horizontalLayout.addWidget(self.line_4)
 
+        self.newFileButton = QPushButton(self.centralwidget)
+        self.newFileButton.setObjectName(u"newFileButton")
+        icon = QIcon()
+        icon.addFile(u"../icons/new-file-icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.newFileButton.setIcon(icon)
+        self.newFileButton.setIconSize(QSize(25, 25))
+
+        self.horizontalLayout.addWidget(self.newFileButton)
+
         self.openButton = QPushButton(self.centralwidget)
         self.openButton.setObjectName(u"openButton")
-        icon = QIcon()
-        icon.addFile(u"../icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.openButton.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u"../icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.openButton.setIcon(icon1)
         self.openButton.setIconSize(QSize(25, 25))
 
         self.horizontalLayout.addWidget(self.openButton)
 
         self.saveButton = QPushButton(self.centralwidget)
         self.saveButton.setObjectName(u"saveButton")
-        icon1 = QIcon()
-        icon1.addFile(u"../icons/Save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.saveButton.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u"../icons/Save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.saveButton.setIcon(icon2)
         self.saveButton.setIconSize(QSize(25, 25))
 
         self.horizontalLayout.addWidget(self.saveButton)
 
         self.convertButton = QPushButton(self.centralwidget)
         self.convertButton.setObjectName(u"convertButton")
-        icon2 = QIcon()
-        icon2.addFile(u"../icons/md-to-html.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.convertButton.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"../icons/md-to-html.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.convertButton.setIcon(icon3)
         self.convertButton.setIconSize(QSize(50, 25))
 
         self.horizontalLayout.addWidget(self.convertButton)
@@ -119,10 +128,10 @@ class Ui_ImageViewerWindow(object):
 
     def retranslateUi(self, ImageViewerWindow):
         ImageViewerWindow.setWindowTitle(QCoreApplication.translate("ImageViewerWindow", u"Example Image Viewer", None))
+        self.newFileButton.setText("")
         self.openButton.setText("")
         self.saveButton.setText("")
         self.convertButton.setText("")
         self.currentFile.setText(QCoreApplication.translate("ImageViewerWindow", u"No file selected", None))
-        
     # retranslateUi
 

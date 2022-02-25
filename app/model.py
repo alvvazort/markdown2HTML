@@ -10,13 +10,20 @@ class Markdown2HTML(QMainWindow):
         super().__init__()
         uic.loadUi('app\mainInterface.ui', self) #Carga la interfaz (Hecha en Qt designer)
         
-        self.currentFileName=""
+        self.currentFileName="new_file.txt"
+
         ## Conexión de botones con sus funciones
+        self.newFileButton.clicked.connect(self.openTxtFile)
         self.openButton.clicked.connect(self.openTxtFile) 
         self.saveButton.clicked.connect(self.saveFunction)
         self.convertButton.clicked.connect(self.convertFunction)
         
-    
+    def newFile(self):
+        picker = txtCreator(self).get_widget()
+        picker.fileSelected.connect(self.textFileSelected)
+        picker.show()
+        return picker
+
     def openTxtFile(self):
         picker = txtPicker(self).get_widget()
         picker.fileSelected.connect(self.textFileSelected)
@@ -34,7 +41,7 @@ class Markdown2HTML(QMainWindow):
         print("Saving...")
         print(self.currentFileName)
         #Obtener el texto del editor y guardarlo en el archivo
-        file = open("myfile.txt", "w")
+        file = open(self.currentFileName, "w")
         file.write(self.textEditor.toPlainText())
         file.close()
 
@@ -47,5 +54,15 @@ class txtPicker:
 
     def get_widget(self):
         picker = QtWidgets.QFileDialog(self.ui)
+        picker.setMimeTypeFilters(['text/plain'])
+        return picker
+
+class txtCreator:
+    def __init__(self, ui):
+        self.ui = ui
+
+    def get_widget(self):
+        picker = QtWidgets.QFileDialog(self.ui)
+        picker.setacceptMode(QtWidgets.QFileDialog.AcceptSave)
         picker.setMimeTypeFilters(['text/plain'])
         return picker

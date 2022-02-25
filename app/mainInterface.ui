@@ -25,6 +25,23 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="newFileButton">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../icons/new-file-icon.png</normaloff>../icons/new-file-icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="openButton">
         <property name="text">
          <string/>
