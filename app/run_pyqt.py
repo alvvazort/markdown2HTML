@@ -1,19 +1,14 @@
 import sys
 
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5 import uic
+from PyQt5.QtWidgets import QApplication
 
+import model
 
-class Markdown2HTML(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        uic.loadUi('app\mainInterface.ui', self) #Carga la interfaz (Hecha en Qt designer)
-
-    
 
 def main():
     app = QApplication(sys.argv)
-    form = Markdown2HTML() #Crea la ventana de la aplicación
+    form = model.Markdown2HTML() #Crea la interfaz y el modelo de la aplicación
+    
     form.show()
     
     try:

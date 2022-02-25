@@ -24,23 +24,39 @@ class Ui_ImageViewerWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.pushButton = QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(u"pushButton")
-        icon = QIcon()
-        icon.addFile(u"../icons/Save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton.setIcon(icon)
-        self.pushButton.setIconSize(QSize(25, 25))
+        self.line_4 = QFrame(self.centralwidget)
+        self.line_4.setObjectName(u"line_4")
+        self.line_4.setFrameShape(QFrame.VLine)
+        self.line_4.setFrameShadow(QFrame.Sunken)
 
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.horizontalLayout.addWidget(self.line_4)
+
+        self.openButton = QPushButton(self.centralwidget)
+        self.openButton.setObjectName(u"openButton")
+        icon = QIcon()
+        icon.addFile(u"../icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.openButton.setIcon(icon)
+        self.openButton.setIconSize(QSize(25, 25))
+
+        self.horizontalLayout.addWidget(self.openButton)
 
         self.saveButton = QPushButton(self.centralwidget)
         self.saveButton.setObjectName(u"saveButton")
         icon1 = QIcon()
-        icon1.addFile(u"../icons/md-to-html.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"../icons/Save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
         self.saveButton.setIcon(icon1)
-        self.saveButton.setIconSize(QSize(50, 25))
+        self.saveButton.setIconSize(QSize(25, 25))
 
         self.horizontalLayout.addWidget(self.saveButton)
+
+        self.convertButton = QPushButton(self.centralwidget)
+        self.convertButton.setObjectName(u"convertButton")
+        icon2 = QIcon()
+        icon2.addFile(u"../icons/md-to-html.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.convertButton.setIcon(icon2)
+        self.convertButton.setIconSize(QSize(50, 25))
+
+        self.horizontalLayout.addWidget(self.convertButton)
 
         self.currentFile = QLabel(self.centralwidget)
         self.currentFile.setObjectName(u"currentFile")
@@ -57,10 +73,17 @@ class Ui_ImageViewerWindow(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.textEdit = QTextEdit(self.centralwidget)
-        self.textEdit.setObjectName(u"textEdit")
+        self.line_2 = QFrame(self.centralwidget)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setFrameShape(QFrame.VLine)
+        self.line_2.setFrameShadow(QFrame.Sunken)
 
-        self.horizontalLayout_2.addWidget(self.textEdit)
+        self.horizontalLayout_2.addWidget(self.line_2)
+
+        self.textEditor = QPlainTextEdit(self.centralwidget)
+        self.textEditor.setObjectName(u"textEditor")
+
+        self.horizontalLayout_2.addWidget(self.textEditor)
 
         self.line = QFrame(self.centralwidget)
         self.line.setObjectName(u"line")
@@ -69,10 +92,17 @@ class Ui_ImageViewerWindow(object):
 
         self.horizontalLayout_2.addWidget(self.line)
 
-        self.graphicsView = QGraphicsView(self.centralwidget)
-        self.graphicsView.setObjectName(u"graphicsView")
+        self.htmlDisplayer = QPlainTextEdit(self.centralwidget)
+        self.htmlDisplayer.setObjectName(u"htmlDisplayer")
 
-        self.horizontalLayout_2.addWidget(self.graphicsView)
+        self.horizontalLayout_2.addWidget(self.htmlDisplayer)
+
+        self.line_3 = QFrame(self.centralwidget)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setFrameShape(QFrame.VLine)
+        self.line_3.setFrameShadow(QFrame.Sunken)
+
+        self.horizontalLayout_2.addWidget(self.line_3)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -89,8 +119,10 @@ class Ui_ImageViewerWindow(object):
 
     def retranslateUi(self, ImageViewerWindow):
         ImageViewerWindow.setWindowTitle(QCoreApplication.translate("ImageViewerWindow", u"Example Image Viewer", None))
-        self.pushButton.setText("")
+        self.openButton.setText("")
         self.saveButton.setText("")
+        self.convertButton.setText("")
         self.currentFile.setText(QCoreApplication.translate("ImageViewerWindow", u"No file selected", None))
+        
     # retranslateUi
 
