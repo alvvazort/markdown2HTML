@@ -11,13 +11,13 @@ Provides a markdown editor that convert the text to html to show the final aspec
 - [x] Edit a text file.
 - [x] Save a text file.
 - [x] Open a text file.
-- [ ] Show HTML.
-- [ ] Save HTML.
+- [x] Show HTML.
+- [x] Save HTML.
 
 # Non Functional Features
 
 - [x] Header menu.
 - [ ] Documentation generated with code.
-- [ ] Translation to other languajes.
+- [ ] Translation to other languages.
 
 ![User Interface](https://github.com/alvvazort/markdown2HTML/blob/main/docs/screenshots/UI.jpg)
