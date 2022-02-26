@@ -17,7 +17,7 @@ Provides a markdown editor that convert the text to html to show the final aspec
 # Non Functional Features
 
 - [x] Header menu.
-- [ ] Documentation generated with code.
+- [x] Documentation generated with code.
 - [ ] Translation to other languages.
 
 ![User Interface](docs/screenshots/UI.jpg)
