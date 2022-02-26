@@ -1,6 +1,10 @@
 # markdown2HTML
 Provides a markdown editor that convert the text to html to show the final aspect.
 
+# Requirements
+
+1- install PyQt5
+
 # Features
 
 - [x] Create new text file.
