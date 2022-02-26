@@ -21,3 +21,5 @@ Provides a markdown editor that convert the text to html to show the final aspec
 - [ ] Translation to other languages.
 
 ![User Interface](https://github.com/alvvazort/markdown2HTML/blob/main/docs/screenshots/UI.jpg)
+
+![User Interface](https://github.com/alvvazort/markdown2HTML/blob/main/docs/screenshots/html_displayed.jpg)
