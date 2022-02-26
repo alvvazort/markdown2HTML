@@ -56,23 +56,30 @@ class Markdown2HTML(QMainWindow):
 
     def convertFunction(self):
         print("Converting...")
+        self.saveFunction()
+
+        file = open(self.currentFileName, "r")
+        
+        self.htmlDisplayer.setHtml(markdown.markdown(file.read()))
+
+        file.close()
         
 
-class txtPicker:
+class txtPicker: #Ventana de dialogo para abrir txt
     def __init__(self, ui):
         self.ui = ui
 
     def get_widget(self):
         picker = QtWidgets.QFileDialog(self.ui)
-        picker.setMimeTypeFilters(['text/plain'])
+        picker.setMimeTypeFilters(['text/plain','text/markdown'])
         return picker
 
-class txtCreator:
+class txtCreator: #Ventana de dialogo para crear txt
     def __init__(self, ui):
         self.ui = ui
 
     def get_widget(self):
         picker = QtWidgets.QFileDialog(self.ui)
         picker.setAcceptMode(QtWidgets.QFileDialog.AcceptSave)
-        picker.setMimeTypeFilters(['text/plain'])
+        picker.setMimeTypeFilters(['text/plain','text/markdown'])
         return picker

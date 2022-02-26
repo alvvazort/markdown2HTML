@@ -134,7 +134,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPlainTextEdit" name="htmlDisplayer"/>
+       <widget class="QTextEdit" name="htmlDisplayer"/>
       </item>
       <item>
        <widget class="Line" name="line_3">

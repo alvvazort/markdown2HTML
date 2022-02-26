@@ -105,7 +105,7 @@ class Ui_Markdown2HTML(object):
 
         self.horizontalLayout_2.addWidget(self.line)
 
-        self.htmlDisplayer = QPlainTextEdit(self.centralwidget)
+        self.htmlDisplayer = QTextEdit(self.centralwidget)
         self.htmlDisplayer.setObjectName(u"htmlDisplayer")
 
         self.horizontalLayout_2.addWidget(self.htmlDisplayer)
