@@ -23,3 +23,6 @@ Provides a markdown editor that convert the text to html to show the final aspec
 ![User Interface](docs/screenshots/UI.jpg)
 
 ![User Interface](docs/screenshots/html_displayed.jpg)
+
+# Documentation
+The documents are placed in /docs/_build/html
