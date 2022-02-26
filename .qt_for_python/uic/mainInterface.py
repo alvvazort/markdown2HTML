@@ -13,12 +13,16 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class Ui_ImageViewerWindow(object):
-    def setupUi(self, ImageViewerWindow):
-        if not ImageViewerWindow.objectName():
-            ImageViewerWindow.setObjectName(u"ImageViewerWindow")
-        ImageViewerWindow.resize(1080, 800)
-        self.centralwidget = QWidget(ImageViewerWindow)
+class Ui_Markdown2HTML(object):
+    def setupUi(self, Markdown2HTML):
+        if not Markdown2HTML.objectName():
+            Markdown2HTML.setObjectName(u"Markdown2HTML")
+        Markdown2HTML.resize(1080, 800)
+        icon = QIcon()
+        icon.addFile(u"../icons/markdown-icon-23.png", QSize(), QIcon.Normal, QIcon.Off)
+        Markdown2HTML.setWindowIcon(icon)
+        Markdown2HTML.setAnimated(True)
+        self.centralwidget = QWidget(Markdown2HTML)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -33,36 +37,36 @@ class Ui_ImageViewerWindow(object):
 
         self.newFileButton = QPushButton(self.centralwidget)
         self.newFileButton.setObjectName(u"newFileButton")
-        icon = QIcon()
-        icon.addFile(u"../icons/new-file-icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.newFileButton.setIcon(icon)
+        icon1 = QIcon()
+        icon1.addFile(u"../icons/new-file-icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.newFileButton.setIcon(icon1)
         self.newFileButton.setIconSize(QSize(25, 25))
 
         self.horizontalLayout.addWidget(self.newFileButton)
 
         self.openButton = QPushButton(self.centralwidget)
         self.openButton.setObjectName(u"openButton")
-        icon1 = QIcon()
-        icon1.addFile(u"../icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.openButton.setIcon(icon1)
+        icon2 = QIcon()
+        icon2.addFile(u"../icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.openButton.setIcon(icon2)
         self.openButton.setIconSize(QSize(25, 25))
 
         self.horizontalLayout.addWidget(self.openButton)
 
         self.saveButton = QPushButton(self.centralwidget)
         self.saveButton.setObjectName(u"saveButton")
-        icon2 = QIcon()
-        icon2.addFile(u"../icons/Save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.saveButton.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"../icons/Save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.saveButton.setIcon(icon3)
         self.saveButton.setIconSize(QSize(25, 25))
 
         self.horizontalLayout.addWidget(self.saveButton)
 
         self.convertButton = QPushButton(self.centralwidget)
         self.convertButton.setObjectName(u"convertButton")
-        icon3 = QIcon()
-        icon3.addFile(u"../icons/md-to-html.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.convertButton.setIcon(icon3)
+        icon4 = QIcon()
+        icon4.addFile(u"../icons/md-to-html.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.convertButton.setIcon(icon4)
         self.convertButton.setIconSize(QSize(50, 25))
 
         self.horizontalLayout.addWidget(self.convertButton)
@@ -116,22 +120,22 @@ class Ui_ImageViewerWindow(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_2)
 
-        ImageViewerWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QStatusBar(ImageViewerWindow)
+        Markdown2HTML.setCentralWidget(self.centralwidget)
+        self.statusbar = QStatusBar(Markdown2HTML)
         self.statusbar.setObjectName(u"statusbar")
-        ImageViewerWindow.setStatusBar(self.statusbar)
+        Markdown2HTML.setStatusBar(self.statusbar)
 
-        self.retranslateUi(ImageViewerWindow)
+        self.retranslateUi(Markdown2HTML)
 
-        QMetaObject.connectSlotsByName(ImageViewerWindow)
+        QMetaObject.connectSlotsByName(Markdown2HTML)
     # setupUi
 
-    def retranslateUi(self, ImageViewerWindow):
-        ImageViewerWindow.setWindowTitle(QCoreApplication.translate("ImageViewerWindow", u"Example Image Viewer", None))
+    def retranslateUi(self, Markdown2HTML):
+        Markdown2HTML.setWindowTitle(QCoreApplication.translate("Markdown2HTML", u"Markdown2HTML", None))
         self.newFileButton.setText("")
         self.openButton.setText("")
         self.saveButton.setText("")
         self.convertButton.setText("")
-        self.currentFile.setText(QCoreApplication.translate("ImageViewerWindow", u"No file selected", None))
+        self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"No file selected", None))
     # retranslateUi
 

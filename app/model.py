@@ -56,6 +56,7 @@ class Markdown2HTML(QMainWindow):
 
     def convertFunction(self):
         print("Converting...")
+        
 
 class txtPicker:
     def __init__(self, ui):

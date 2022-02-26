@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ImageViewerWindow</class>
- <widget class="QMainWindow" name="ImageViewerWindow">
+ <class>Markdown2HTML</class>
+ <widget class="QMainWindow" name="Markdown2HTML">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +11,14 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Example Image Viewer</string>
+   <string>Markdown2HTML</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../icons/markdown-icon-23.png</normaloff>../icons/markdown-icon-23.png</iconset>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
