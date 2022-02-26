@@ -6,6 +6,9 @@ Provides a markdown editor that convert the text to html to show the final aspec
 - Install PyQt5
 - ```pip install markdown ```
 
+# How to use
+Run /app/main.py
+
 # Features
 
 - [x] Create new text file.
