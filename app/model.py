@@ -13,14 +13,14 @@ class Markdown2HTML(QMainWindow):
         self.currentFileName="new_file.txt"
 
         ## Conexión de botones con sus funciones
-        self.newFileButton.clicked.connect(self.openTxtFile)
+        self.newFileButton.clicked.connect(self.newFile)
         self.openButton.clicked.connect(self.openTxtFile) 
         self.saveButton.clicked.connect(self.saveFunction)
         self.convertButton.clicked.connect(self.convertFunction)
         
     def newFile(self):
         picker = txtCreator(self).get_widget()
-        picker.fileSelected.connect(self.textFileSelected)
+        picker.fileSelected.connect(self.textFileCreate)
         picker.show()
         return picker
 
@@ -29,6 +29,15 @@ class Markdown2HTML(QMainWindow):
         picker.fileSelected.connect(self.textFileSelected)
         picker.show()
         return picker
+
+    def textFileCreate(self, file):
+        self.currentFile.setText(file)
+        self.currentFileName=file
+        file = open(self.currentFileName, "w")
+        file.write(self.textEditor.toPlainText())
+        file.close()
+
+
 
     def textFileSelected(self, file):
         self.currentFile.setText(file)
@@ -63,6 +72,6 @@ class txtCreator:
 
     def get_widget(self):
         picker = QtWidgets.QFileDialog(self.ui)
-        picker.setacceptMode(QtWidgets.QFileDialog.AcceptSave)
+        picker.setAcceptMode(QtWidgets.QFileDialog.AcceptSave)
         picker.setMimeTypeFilters(['text/plain'])
         return picker
