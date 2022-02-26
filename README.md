@@ -20,6 +20,6 @@ Provides a markdown editor that convert the text to html to show the final aspec
 - [ ] Documentation generated with code.
 - [ ] Translation to other languages.
 
-![User Interface](docs\screenshots\UI.jpg)
+![User Interface](docs/screenshots/UI.jpg)
 
-![User Interface](docs\screenshots\html_displayed.jpg)
+![User Interface](docs/screenshots/html_displayed.jpg)
