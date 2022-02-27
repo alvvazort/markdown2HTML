@@ -3,15 +3,21 @@
 ################################################################################
 ## Form generated from reading UI file 'mainInterface.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.2.3
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QMainWindow, QPlainTextEdit, QPushButton, QSizePolicy,
+    QStatusBar, QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_Markdown2HTML(object):
     def setupUi(self, Markdown2HTML):
@@ -70,6 +76,11 @@ class Ui_Markdown2HTML(object):
         self.convertButton.setIconSize(QSize(50, 25))
 
         self.horizontalLayout.addWidget(self.convertButton)
+
+        self.languagePickerButton = QPushButton(self.centralwidget)
+        self.languagePickerButton.setObjectName(u"languagePickerButton")
+
+        self.horizontalLayout.addWidget(self.languagePickerButton)
 
         self.currentFile = QLabel(self.centralwidget)
         self.currentFile.setObjectName(u"currentFile")
@@ -136,6 +147,7 @@ class Ui_Markdown2HTML(object):
         self.openButton.setText("")
         self.saveButton.setText("")
         self.convertButton.setText("")
-        self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"No file selected", None))
+        self.languagePickerButton.setText(QCoreApplication.translate("Markdown2HTML", u"Idioma", None))
+        self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"Ning\u00fan archivo seleccionado", None))
     # retranslateUi
 

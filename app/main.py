@@ -8,7 +8,6 @@ import model
 def main():
     app = QApplication(sys.argv)
     form = model.Markdown2HTML() #Crea la interfaz y el modelo de la aplicación
-    
     form.show()
     
     try:

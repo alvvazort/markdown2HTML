@@ -100,6 +100,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="languagePickerButton">
+        <property name="text">
+         <string>Idioma</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="currentFile">
         <property name="sizePolicy">
          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
@@ -108,7 +115,7 @@
          </sizepolicy>
         </property>
         <property name="text">
-         <string>No file selected</string>
+         <string>Ningún archivo seleccionado</string>
         </property>
        </widget>
       </item>

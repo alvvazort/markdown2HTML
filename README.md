@@ -23,11 +23,13 @@ Run /app/main.py
 
 - [x] Header menu.
 - [x] Documentation generated with code.
-- [ ] Translation to other languages.
+- [x] Translation to other languages.
 
 ![User Interface](docs/screenshots/UI.jpg)
 
 ![User Interface](docs/screenshots/html_displayed.jpg)
+
+![User Interface](docs/screenshots/languages.jpg)
 
 # Documentation
 The documents are placed in /docs/_build/html
