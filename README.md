@@ -27,9 +27,11 @@ Run /app/main.py
 
 ![User Interface](docs/screenshots/UI.jpg)
 
-![User Interface](docs/screenshots/html_displayed.jpg)
+![Html Displayed](docs/screenshots/html_displayed.jpg)
 
-![User Interface](docs/screenshots/languages.jpg)
+![Choosing language](docs/screenshots/languages.jpg)
+
+![Opening file](docs/screenshots/opening_file.jpg)
 
 # Documentation
 The documents are placed in /docs/_build/html
