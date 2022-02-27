@@ -3,7 +3,8 @@ Provides a markdown editor that convert the text to html to show the final aspec
 
 # Requirements
 
-- Install PyQt5
+- ```pip install pyqt5 ```
+- ```pip install pyside6 ```
 - ```pip install markdown ```
 
 # How to use
