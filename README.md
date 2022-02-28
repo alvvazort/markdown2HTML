@@ -34,4 +34,4 @@ Run /app/main.py
 ![Opening file](docs/screenshots/opening_file.jpg)
 
 # Documentation
-The documents are placed in /docs/_build/html
+The documents are placed in /docs/documents/html
