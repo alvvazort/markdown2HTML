@@ -13,6 +13,8 @@ class Markdown2HTML(QMainWindow):
         
         self.currentFileName="new_file.txt"
 
+        self.fileSelected=False
+
         self.translator=QTranslator()
     
         ## Conexión de botones con sus funciones
@@ -44,6 +46,7 @@ class Markdown2HTML(QMainWindow):
     def textFileSelected(self, file):
         self.currentFile.setText(file)
         self.currentFileName=file
+        self.fileSelected=True
 
         text=open(file).read()
         self.textEditor.setPlainText(text) #Escribir texto en el editor
@@ -92,8 +95,9 @@ class Markdown2HTML(QMainWindow):
         self.openButton.setText("")
         self.saveButton.setText("")
         self.convertButton.setText("")
-        self.languagePickerButton.setText(QCoreApplication.translate("Markdown2HTML", u"Language", None))
-        self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"Ning\u00fan archivo seleccionado", None))
+        self.languagePickerButton.setText(QCoreApplication.translate("Markdown2HTML", u"Idioma", None))
+        if(not self.fileSelected):
+            self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"Ning\u00fan archivo seleccionado", None))
     # retranslateUi
 
     
