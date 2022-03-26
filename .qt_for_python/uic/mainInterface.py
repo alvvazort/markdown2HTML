@@ -17,7 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QPlainTextEdit, QPushButton, QSizePolicy,
-    QStatusBar, QTextEdit, QVBoxLayout, QWidget)
+    QStatusBar, QTextEdit, QToolButton, QUndoView,
+    QVBoxLayout, QWidget)
 
 class Ui_Markdown2HTML(object):
     def setupUi(self, Markdown2HTML):
@@ -77,6 +78,34 @@ class Ui_Markdown2HTML(object):
 
         self.horizontalLayout.addWidget(self.convertButton)
 
+        self.undoButton = QToolButton(self.centralwidget)
+        self.undoButton.setObjectName(u"undoButton")
+        icon5 = QIcon()
+        icon5.addFile(u"../icons/undo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.undoButton.setIcon(icon5)
+        self.undoButton.setPopupMode(QToolButton.InstantPopup)
+
+        self.horizontalLayout.addWidget(self.undoButton)
+
+        self.undoListButton = QPushButton(self.centralwidget)
+        self.undoListButton.setObjectName(u"undoListButton")
+        icon6 = QIcon()
+        icon6.addFile(u"../icons/Arrow-down.svg.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.undoListButton.setIcon(icon6)
+        self.undoListButton.setIconSize(QSize(15, 15))
+
+        self.horizontalLayout.addWidget(self.undoListButton)
+
+        self.redoButton = QToolButton(self.centralwidget)
+        self.redoButton.setObjectName(u"redoButton")
+        icon7 = QIcon()
+        icon7.addFile(u"../icons/redo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.redoButton.setIcon(icon7)
+        self.redoButton.setPopupMode(QToolButton.DelayedPopup)
+        self.redoButton.setToolButtonStyle(Qt.ToolButtonFollowStyle)
+
+        self.horizontalLayout.addWidget(self.redoButton)
+
         self.languagePickerButton = QPushButton(self.centralwidget)
         self.languagePickerButton.setObjectName(u"languagePickerButton")
 
@@ -91,6 +120,7 @@ class Ui_Markdown2HTML(object):
         self.currentFile.setSizePolicy(sizePolicy)
 
         self.horizontalLayout.addWidget(self.currentFile)
+
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -147,6 +177,9 @@ class Ui_Markdown2HTML(object):
         self.openButton.setText("")
         self.saveButton.setText("")
         self.convertButton.setText("")
+        self.undoButton.setText("")
+        self.undoListButton.setText("")
+        self.redoButton.setText("")
         self.languagePickerButton.setText(QCoreApplication.translate("Markdown2HTML", u"Idioma", None))
         self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"Ning\u00fan archivo seleccionado", None))
     # retranslateUi

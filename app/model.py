@@ -3,7 +3,11 @@ from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QTranslator, QCoreApplication
+from PyQt5.QtGui import QKeySequence
+
 import markdown
+
+import commands
 
 
 class Markdown2HTML(QMainWindow):
@@ -16,13 +20,43 @@ class Markdown2HTML(QMainWindow):
         self.fileSelected=False
 
         self.translator=QTranslator()
+
+        ## Undo & Redo
+
+        self.undoStack = QtWidgets.QUndoStack(self)
+        undoAction = self.undoStack.createUndoAction(self, self.tr("&Undo"))
+        undoAction.setShortcuts(QKeySequence.Undo)
+        redoAction = self.undoStack.createRedoAction(self, self.tr("&Redo"))
+        redoAction.setShortcuts(QKeySequence.Redo)
+
+        self.undoButton.setDefaultAction(undoAction)
+        self.redoButton.setDefaultAction(redoAction)
+
+        self.storeFieldText()
+        self.storeFieldText()
+        self.storeFieldText()
+
+        self.undoListButton.clicked.connect(self.showUndoList)
     
+        ##
+
         ## Conexión de botones con sus funciones
         self.newFileButton.clicked.connect(self.newFile)
         self.openButton.clicked.connect(self.openTxtFile) 
         self.saveButton.clicked.connect(self.saveFunction)
         self.convertButton.clicked.connect(self.convertFunction)
         self.languagePickerButton.clicked.connect(self.pickLanguage)
+
+
+    def storeFieldText(self):   
+        textCommand = commands.TextCommand(self.textEditor)  
+        self.undoStack.push(textCommand)
+
+    def showUndoList(self):
+        self.undoView = QtWidgets.QUndoView(self.undoStack,self.centralwidget)
+        self.undoView.setObjectName(u"undoView")
+
+        self.horizontalLayout.addWidget(self.undoView)
         
     def newFile(self):
         picker = txtCreator(self).get_widget()
