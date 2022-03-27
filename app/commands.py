@@ -10,9 +10,9 @@ class TextCommand(QtWidgets.QUndoCommand):
         
         # Record the field that has changed.
         self.field = field
-        
         # Record the text at the time the command was created.
         self.text = field.text()
+        self.setText(self.text) # Show in undoView this text
 
     def undo(self):
      
