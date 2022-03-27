@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QPlainTextEdit,
-    QPushButton, QSizePolicy, QSpacerItem, QTextEdit,
+from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QGraphicsView,
+    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
+    QPlainTextEdit, QPushButton, QSizePolicy, QTextEdit,
     QToolButton, QVBoxLayout, QWidget)
 
 class Ui_Markdown2HTML(object):
@@ -33,7 +33,7 @@ class Ui_Markdown2HTML(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayoutWidget = QWidget(self.centralwidget)
         self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(9, 9, 1071, 431))
+        self.verticalLayoutWidget.setGeometry(QRect(9, 9, 1071, 421))
         self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -43,7 +43,7 @@ class Ui_Markdown2HTML(object):
         self.line_9.setObjectName(u"line_9")
         self.line_9.setFrameShape(QFrame.VLine)
         self.line_9.setFrameShadow(QFrame.Sunken)
-
+        
         self.horizontalLayout_7.addWidget(self.line_9)
 
         self.newFileButton = QPushButton(self.verticalLayoutWidget)
@@ -138,11 +138,11 @@ class Ui_Markdown2HTML(object):
 
         self.label = QLabel(self.centralwidget)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(470, 450, 151, 20))
+        self.label.setGeometry(QRect(470, 430, 151, 20))
         self.label.setTextFormat(Qt.MarkdownText)
         self.horizontalLayoutWidget_2 = QWidget(self.centralwidget)
         self.horizontalLayoutWidget_2.setObjectName(u"horizontalLayoutWidget_2")
-        self.horizontalLayoutWidget_2.setGeometry(QRect(10, 479, 1051, 31))
+        self.horizontalLayoutWidget_2.setGeometry(QRect(10, 450, 531, 31))
         self.horizontalLayout_11 = QHBoxLayout(self.horizontalLayoutWidget_2)
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
@@ -174,13 +174,9 @@ class Ui_Markdown2HTML(object):
 
         self.horizontalLayout_11.addWidget(self.redoButton)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_11.addItem(self.horizontalSpacer)
-
         self.formLayoutWidget = QWidget(self.centralwidget)
         self.formLayoutWidget.setObjectName(u"formLayoutWidget")
-        self.formLayoutWidget.setGeometry(QRect(10, 530, 531, 171))
+        self.formLayoutWidget.setGeometry(QRect(560, 770, 501, 61))
         self.formLayout = QFormLayout(self.formLayoutWidget)
         self.formLayout.setObjectName(u"formLayout")
         self.formLayout.setContentsMargins(0, 0, 0, 0)
@@ -196,12 +192,14 @@ class Ui_Markdown2HTML(object):
 
         self.horizontalLayoutWidget = QWidget(self.centralwidget)
         self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
-        self.horizontalLayoutWidget.setGeometry(QRect(560, 530, 501, 171))
+        self.horizontalLayoutWidget.setGeometry(QRect(560, 490, 501, 261))
         self.horizontalLayout = QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.graphicsView = QGraphicsView(self.centralwidget)
+        self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setGeometry(QRect(10, 490, 531, 341))
         Markdown2HTML.setCentralWidget(self.centralwidget)
-
         self.retranslateUi(Markdown2HTML)
 
         QMetaObject.connectSlotsByName(Markdown2HTML)
@@ -215,7 +213,7 @@ class Ui_Markdown2HTML(object):
         self.convertButton.setText("")
         self.languagePickerButton.setText(QCoreApplication.translate("Markdown2HTML", u"Idioma", None))
         self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"Ning\u00fan archivo seleccionado", None))
-        self.label.setText(QCoreApplication.translate("Markdown2HTML", u"**Prueba de Undo y redo**", None))
+        self.label.setText(QCoreApplication.translate("Markdown2HTML", u"**Prueba de Undo y Redo**", None))
         self.undoButton.setText("")
         self.undoListButton.setText("")
         self.redoButton.setText("")

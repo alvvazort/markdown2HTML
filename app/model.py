@@ -1,9 +1,10 @@
 
+from turtle import width
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QTranslator, QCoreApplication
-from PyQt5.QtGui import QKeySequence
+from PyQt5.QtGui import QKeySequence,  QBrush, QColor
 
 import markdown
 from pymysql import NULL
@@ -26,25 +27,60 @@ class Markdown2HTML(QMainWindow):
         self.fileSelected=False
 
         self.translator=QTranslator()
+        self.graphicScene= QtWidgets.QGraphicsScene(backgroundBrush=QBrush(QColor(111,111,111)))
+        self.graphicScene.width=self.graphicsView.width()
+        self.graphicScene.height=self.graphicsView.height()
+        
+        self.graphicsView.setScene(self.graphicScene)
 
         self.undoView=NULL
 
+        self.createActions()
+        self.createMenus()
+
+        
+
+    def createActions(self):
         ## Undo & Redo
 
         self.undoStack = QtWidgets.QUndoStack(self)
-        undoAction = self.undoStack.createUndoAction(self, self.tr("&Undo"))
-        undoAction.setShortcuts(QKeySequence.Undo)
-        redoAction = self.undoStack.createRedoAction(self, self.tr("&Redo"))
-        redoAction.setShortcuts(QKeySequence.Redo)
+        self.undoAction = self.undoStack.createUndoAction(self, self.tr("&Undo"))
+        self.undoAction.setShortcuts(QKeySequence.Undo)
+        self.redoAction = self.undoStack.createRedoAction(self, self.tr("&Redo"))
+        self.redoAction.setShortcuts(QKeySequence.Redo)
 
-        self.undoButton.setDefaultAction(undoAction)
-        self.redoButton.setDefaultAction(redoAction)
+        #GraphicViewer
+
+        self.addBoxAction = QtWidgets.QAction(self.tr("Add &Box"))
+        self.addBoxAction.setShortcut(QKeySequence("Ctrl+O"))
+        self.addBoxAction.triggered.connect(self.addBoxFunction)
+        
+
+        self.addTriangleAction = QtWidgets.QAction(self.tr("Add &Triangle"))
+        self.addTriangleAction.setShortcut(QKeySequence("Ctrl+T"))
+        self.addTriangleAction.triggered.connect(self.addTriangleFunction)
+
+
+    def addBoxFunction(self):
+        addCommand = commands.AddCommand("Box",self.graphicScene)  
+        self.undoStack.push(addCommand)
+        self.graphicsView.update()
+
+    def addTriangleFunction(self):
+        addCommand = commands.AddCommand("Triangle",self.graphicScene)  
+        self.undoStack.push(addCommand)
+        self.graphicsView.update()
+
+
+    def createMenus(self):
+        ## Undo & Redo
+        self.undoButton.setDefaultAction(self.undoAction)
+        self.redoButton.setDefaultAction(self.redoAction)
         self.undoListButton.clicked.connect(self.showUndoList)
 
         self.nameEdit.editingFinished.connect(self.storeFieldText)
         self.addressEdit.editingFinished.connect(self.storeFieldText)
     
-        ##
 
         ## Conexión de botones con sus funciones
         self.newFileButton.clicked.connect(self.newFile)
@@ -53,6 +89,12 @@ class Markdown2HTML(QMainWindow):
         self.convertButton.clicked.connect(self.convertFunction)
         self.languagePickerButton.clicked.connect(self.pickLanguage)
 
+        ## GraficViewer
+        self.itemMenu= QtWidgets.QMenuBar()
+        self.horizontalLayout_11.addWidget(self.itemMenu)
+        self.itemMenu.addAction(self.addBoxAction)
+        self.itemMenu.addAction(self.addTriangleAction)
+        
 
     def storeFieldText(self):   
         textCommand = commands.TextCommand(self.sender())  
