@@ -12,16 +12,16 @@ class TextCommand(QtWidgets.QUndoCommand):
         self.field = field
         
         # Record the text at the time the command was created.
-        self.text = field.toPlainText()
+        self.text = field.text()
 
     def undo(self):
      
         # Remove the text from the file and set it in the field.
         # ...
-        self.field.setPlainText(self.text)
+        self.field.setText(self.text)
      
     def redo(self):
      
         # Store the text in the file and set it in the field.
         # ...
-        self.field.setPlainText(self.text)
+        self.field.setText(self.text)

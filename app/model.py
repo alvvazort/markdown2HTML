@@ -6,6 +6,7 @@ from PyQt5.QtCore import QTranslator, QCoreApplication
 from PyQt5.QtGui import QKeySequence
 
 import markdown
+from pymysql import NULL
 
 import commands
 
@@ -14,12 +15,19 @@ class Markdown2HTML(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('app\mainInterface.ui', self) #Carga la interfaz (Hecha en Qt designer)
+
+        self.formLayout.addRow(self.tr("&Nombre"), self.nameEdit)
+        self.formLayout.addRow(self.tr("&Dirección"), self.addressEdit)
+
+        ## 
         
         self.currentFileName="new_file.txt"
 
         self.fileSelected=False
 
         self.translator=QTranslator()
+
+        self.undoView=NULL
 
         ## Undo & Redo
 
@@ -31,12 +39,10 @@ class Markdown2HTML(QMainWindow):
 
         self.undoButton.setDefaultAction(undoAction)
         self.redoButton.setDefaultAction(redoAction)
-
-        self.storeFieldText()
-        self.storeFieldText()
-        self.storeFieldText()
-
         self.undoListButton.clicked.connect(self.showUndoList)
+
+        self.nameEdit.editingFinished.connect(self.storeFieldText)
+        self.addressEdit.editingFinished.connect(self.storeFieldText)
     
         ##
 
@@ -49,14 +55,14 @@ class Markdown2HTML(QMainWindow):
 
 
     def storeFieldText(self):   
-        textCommand = commands.TextCommand(self.textEditor)  
+        textCommand = commands.TextCommand(self.sender())  
         self.undoStack.push(textCommand)
 
     def showUndoList(self):
-        self.undoView = QtWidgets.QUndoView(self.undoStack,self.centralwidget)
-        self.undoView.setObjectName(u"undoView")
-
-        self.horizontalLayout.addWidget(self.undoView)
+        if (self.undoView==NULL):
+            self.undoView = QtWidgets.QUndoView(self.undoStack,self.centralwidget)
+            self.undoView.setObjectName(u"undoView")
+            self.horizontalLayout.addWidget(self.undoView)
         
     def newFile(self):
         picker = txtCreator(self).get_widget()

@@ -15,103 +15,79 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QPlainTextEdit, QPushButton, QSizePolicy,
-    QStatusBar, QTextEdit, QToolButton, QUndoView,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFormLayout, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QMainWindow, QPlainTextEdit,
+    QPushButton, QSizePolicy, QSpacerItem, QTextEdit,
+    QToolButton, QVBoxLayout, QWidget)
 
 class Ui_Markdown2HTML(object):
     def setupUi(self, Markdown2HTML):
         if not Markdown2HTML.objectName():
             Markdown2HTML.setObjectName(u"Markdown2HTML")
-        Markdown2HTML.resize(1080, 800)
+        Markdown2HTML.resize(1089, 864)
         icon = QIcon()
         icon.addFile(u"../icons/markdown-icon-23.png", QSize(), QIcon.Normal, QIcon.Off)
         Markdown2HTML.setWindowIcon(icon)
         Markdown2HTML.setAnimated(True)
         self.centralwidget = QWidget(Markdown2HTML)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.verticalLayout = QVBoxLayout(self.centralwidget)
+        self.verticalLayoutWidget = QWidget(self.centralwidget)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(9, 9, 1071, 431))
+        self.verticalLayout = QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.line_4 = QFrame(self.centralwidget)
-        self.line_4.setObjectName(u"line_4")
-        self.line_4.setFrameShape(QFrame.VLine)
-        self.line_4.setFrameShadow(QFrame.Sunken)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.line_9 = QFrame(self.verticalLayoutWidget)
+        self.line_9.setObjectName(u"line_9")
+        self.line_9.setFrameShape(QFrame.VLine)
+        self.line_9.setFrameShadow(QFrame.Sunken)
 
-        self.horizontalLayout.addWidget(self.line_4)
+        self.horizontalLayout_7.addWidget(self.line_9)
 
-        self.newFileButton = QPushButton(self.centralwidget)
+        self.newFileButton = QPushButton(self.verticalLayoutWidget)
         self.newFileButton.setObjectName(u"newFileButton")
         icon1 = QIcon()
         icon1.addFile(u"../icons/new-file-icon.png", QSize(), QIcon.Normal, QIcon.Off)
         self.newFileButton.setIcon(icon1)
         self.newFileButton.setIconSize(QSize(25, 25))
 
-        self.horizontalLayout.addWidget(self.newFileButton)
+        self.horizontalLayout_7.addWidget(self.newFileButton)
 
-        self.openButton = QPushButton(self.centralwidget)
+        self.openButton = QPushButton(self.verticalLayoutWidget)
         self.openButton.setObjectName(u"openButton")
         icon2 = QIcon()
         icon2.addFile(u"../icons/folder.png", QSize(), QIcon.Normal, QIcon.Off)
         self.openButton.setIcon(icon2)
         self.openButton.setIconSize(QSize(25, 25))
 
-        self.horizontalLayout.addWidget(self.openButton)
+        self.horizontalLayout_7.addWidget(self.openButton)
 
-        self.saveButton = QPushButton(self.centralwidget)
+        self.saveButton = QPushButton(self.verticalLayoutWidget)
         self.saveButton.setObjectName(u"saveButton")
         icon3 = QIcon()
         icon3.addFile(u"../icons/Save-icon.png", QSize(), QIcon.Normal, QIcon.Off)
         self.saveButton.setIcon(icon3)
         self.saveButton.setIconSize(QSize(25, 25))
 
-        self.horizontalLayout.addWidget(self.saveButton)
+        self.horizontalLayout_7.addWidget(self.saveButton)
 
-        self.convertButton = QPushButton(self.centralwidget)
+        self.convertButton = QPushButton(self.verticalLayoutWidget)
         self.convertButton.setObjectName(u"convertButton")
         icon4 = QIcon()
         icon4.addFile(u"../icons/md-to-html.png", QSize(), QIcon.Normal, QIcon.Off)
         self.convertButton.setIcon(icon4)
         self.convertButton.setIconSize(QSize(50, 25))
 
-        self.horizontalLayout.addWidget(self.convertButton)
+        self.horizontalLayout_7.addWidget(self.convertButton)
 
-        self.undoButton = QToolButton(self.centralwidget)
-        self.undoButton.setObjectName(u"undoButton")
-        icon5 = QIcon()
-        icon5.addFile(u"../icons/undo.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.undoButton.setIcon(icon5)
-        self.undoButton.setPopupMode(QToolButton.InstantPopup)
-
-        self.horizontalLayout.addWidget(self.undoButton)
-
-        self.undoListButton = QPushButton(self.centralwidget)
-        self.undoListButton.setObjectName(u"undoListButton")
-        icon6 = QIcon()
-        icon6.addFile(u"../icons/Arrow-down.svg.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.undoListButton.setIcon(icon6)
-        self.undoListButton.setIconSize(QSize(15, 15))
-
-        self.horizontalLayout.addWidget(self.undoListButton)
-
-        self.redoButton = QToolButton(self.centralwidget)
-        self.redoButton.setObjectName(u"redoButton")
-        icon7 = QIcon()
-        icon7.addFile(u"../icons/redo.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.redoButton.setIcon(icon7)
-        self.redoButton.setPopupMode(QToolButton.DelayedPopup)
-        self.redoButton.setToolButtonStyle(Qt.ToolButtonFollowStyle)
-
-        self.horizontalLayout.addWidget(self.redoButton)
-
-        self.languagePickerButton = QPushButton(self.centralwidget)
+        self.languagePickerButton = QPushButton(self.verticalLayoutWidget)
         self.languagePickerButton.setObjectName(u"languagePickerButton")
 
-        self.horizontalLayout.addWidget(self.languagePickerButton)
+        self.horizontalLayout_7.addWidget(self.languagePickerButton)
 
-        self.currentFile = QLabel(self.centralwidget)
+        self.currentFile = QLabel(self.verticalLayoutWidget)
         self.currentFile.setObjectName(u"currentFile")
         sizePolicy = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -119,52 +95,112 @@ class Ui_Markdown2HTML(object):
         sizePolicy.setHeightForWidth(self.currentFile.sizePolicy().hasHeightForWidth())
         self.currentFile.setSizePolicy(sizePolicy)
 
-        self.horizontalLayout.addWidget(self.currentFile)
+        self.horizontalLayout_7.addWidget(self.currentFile)
 
 
+        self.verticalLayout.addLayout(self.horizontalLayout_7)
 
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.horizontalLayout_8 = QHBoxLayout()
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.line_10 = QFrame(self.verticalLayoutWidget)
+        self.line_10.setObjectName(u"line_10")
+        self.line_10.setFrameShape(QFrame.VLine)
+        self.line_10.setFrameShadow(QFrame.Sunken)
 
-        self.horizontalLayout_2 = QHBoxLayout()
-        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.line_2 = QFrame(self.centralwidget)
-        self.line_2.setObjectName(u"line_2")
-        self.line_2.setFrameShape(QFrame.VLine)
-        self.line_2.setFrameShadow(QFrame.Sunken)
+        self.horizontalLayout_8.addWidget(self.line_10)
 
-        self.horizontalLayout_2.addWidget(self.line_2)
-
-        self.textEditor = QPlainTextEdit(self.centralwidget)
+        self.textEditor = QPlainTextEdit(self.verticalLayoutWidget)
         self.textEditor.setObjectName(u"textEditor")
 
-        self.horizontalLayout_2.addWidget(self.textEditor)
+        self.horizontalLayout_8.addWidget(self.textEditor)
 
-        self.line = QFrame(self.centralwidget)
-        self.line.setObjectName(u"line")
-        self.line.setFrameShape(QFrame.VLine)
-        self.line.setFrameShadow(QFrame.Sunken)
+        self.line_11 = QFrame(self.verticalLayoutWidget)
+        self.line_11.setObjectName(u"line_11")
+        self.line_11.setFrameShape(QFrame.VLine)
+        self.line_11.setFrameShadow(QFrame.Sunken)
 
-        self.horizontalLayout_2.addWidget(self.line)
+        self.horizontalLayout_8.addWidget(self.line_11)
 
-        self.htmlDisplayer = QTextEdit(self.centralwidget)
+        self.htmlDisplayer = QTextEdit(self.verticalLayoutWidget)
         self.htmlDisplayer.setObjectName(u"htmlDisplayer")
 
-        self.horizontalLayout_2.addWidget(self.htmlDisplayer)
+        self.horizontalLayout_8.addWidget(self.htmlDisplayer)
 
-        self.line_3 = QFrame(self.centralwidget)
-        self.line_3.setObjectName(u"line_3")
-        self.line_3.setFrameShape(QFrame.VLine)
-        self.line_3.setFrameShadow(QFrame.Sunken)
+        self.line_12 = QFrame(self.verticalLayoutWidget)
+        self.line_12.setObjectName(u"line_12")
+        self.line_12.setFrameShape(QFrame.VLine)
+        self.line_12.setFrameShadow(QFrame.Sunken)
 
-        self.horizontalLayout_2.addWidget(self.line_3)
+        self.horizontalLayout_8.addWidget(self.line_12)
 
 
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_8)
 
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(470, 450, 151, 20))
+        self.label.setTextFormat(Qt.MarkdownText)
+        self.horizontalLayoutWidget_2 = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget_2.setObjectName(u"horizontalLayoutWidget_2")
+        self.horizontalLayoutWidget_2.setGeometry(QRect(10, 479, 1051, 31))
+        self.horizontalLayout_11 = QHBoxLayout(self.horizontalLayoutWidget_2)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.horizontalLayout_11.setContentsMargins(0, 0, 0, 0)
+        self.undoButton = QToolButton(self.horizontalLayoutWidget_2)
+        self.undoButton.setObjectName(u"undoButton")
+        icon5 = QIcon()
+        icon5.addFile(u"../icons/undo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.undoButton.setIcon(icon5)
+        self.undoButton.setPopupMode(QToolButton.InstantPopup)
+
+        self.horizontalLayout_11.addWidget(self.undoButton)
+
+        self.undoListButton = QPushButton(self.horizontalLayoutWidget_2)
+        self.undoListButton.setObjectName(u"undoListButton")
+        icon6 = QIcon()
+        icon6.addFile(u"../icons/Arrow-down.svg.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.undoListButton.setIcon(icon6)
+        self.undoListButton.setIconSize(QSize(15, 15))
+
+        self.horizontalLayout_11.addWidget(self.undoListButton)
+
+        self.redoButton = QToolButton(self.horizontalLayoutWidget_2)
+        self.redoButton.setObjectName(u"redoButton")
+        icon7 = QIcon()
+        icon7.addFile(u"../icons/redo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.redoButton.setIcon(icon7)
+        self.redoButton.setPopupMode(QToolButton.DelayedPopup)
+        self.redoButton.setToolButtonStyle(Qt.ToolButtonFollowStyle)
+
+        self.horizontalLayout_11.addWidget(self.redoButton)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_11.addItem(self.horizontalSpacer)
+
+        self.formLayoutWidget = QWidget(self.centralwidget)
+        self.formLayoutWidget.setObjectName(u"formLayoutWidget")
+        self.formLayoutWidget.setGeometry(QRect(10, 530, 531, 171))
+        self.formLayout = QFormLayout(self.formLayoutWidget)
+        self.formLayout.setObjectName(u"formLayout")
+        self.formLayout.setContentsMargins(0, 0, 0, 0)
+        self.addressEdit = QLineEdit(self.formLayoutWidget)
+        self.addressEdit.setObjectName(u"addressEdit")
+
+        self.formLayout.setWidget(1, QFormLayout.LabelRole, self.addressEdit)
+
+        self.nameEdit = QLineEdit(self.formLayoutWidget)
+        self.nameEdit.setObjectName(u"nameEdit")
+
+        self.formLayout.setWidget(0, QFormLayout.LabelRole, self.nameEdit)
+
+        self.horizontalLayoutWidget = QWidget(self.centralwidget)
+        self.horizontalLayoutWidget.setObjectName(u"horizontalLayoutWidget")
+        self.horizontalLayoutWidget.setGeometry(QRect(560, 530, 501, 171))
+        self.horizontalLayout = QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         Markdown2HTML.setCentralWidget(self.centralwidget)
-        self.statusbar = QStatusBar(Markdown2HTML)
-        self.statusbar.setObjectName(u"statusbar")
-        Markdown2HTML.setStatusBar(self.statusbar)
 
         self.retranslateUi(Markdown2HTML)
 
@@ -177,10 +213,11 @@ class Ui_Markdown2HTML(object):
         self.openButton.setText("")
         self.saveButton.setText("")
         self.convertButton.setText("")
+        self.languagePickerButton.setText(QCoreApplication.translate("Markdown2HTML", u"Idioma", None))
+        self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"Ning\u00fan archivo seleccionado", None))
+        self.label.setText(QCoreApplication.translate("Markdown2HTML", u"**Prueba de Undo y redo**", None))
         self.undoButton.setText("")
         self.undoListButton.setText("")
         self.redoButton.setText("")
-        self.languagePickerButton.setText(QCoreApplication.translate("Markdown2HTML", u"Idioma", None))
-        self.currentFile.setText(QCoreApplication.translate("Markdown2HTML", u"Ning\u00fan archivo seleccionado", None))
     # retranslateUi
 
